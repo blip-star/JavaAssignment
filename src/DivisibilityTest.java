@@ -2,33 +2,36 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-
+//program that teaches on divisibility test of number in the range 0 to 9
 public class DivisibilityTest {
     private static int number;
     public static void main(String[]args){
+        //allow user to input a number and store the result in variable number
         number = input_verify_number("Enter a number");
         StringBuilder reasons = new StringBuilder();
         for(int i = 1; i <=9; i++){
-            if(i==0){
-                JOptionPane.showMessageDialog(null, ""+number+" is not divisible by 0 "+get_divisibility_reason(0));
-            }else if(number % i==0){
+            //check if the number is divisible by i
+            if(number % i==0){
                 reasons.append("\n").append(number).append(" is divisible by ").append(i).append(" ").append(get_divisibility_reason(i));
             }
         }
         JOptionPane.showMessageDialog(null, reasons.toString());
 
     }
-
+   //function to let user enter a number and verify if its valid
     private static int input_verify_number(String message){
         String number_string = JOptionPane.showInputDialog(null, message);
         int number;
         try{
+            //convert the number entered to integer
             number = Integer.parseInt(number_string);
         }catch (Exception e){
+            //handles exceptions
             return input_verify_number("Invalid! Enter a number");
         }
         return number;
     }
+    //function that returns divisibility law of a certain number
     private static String get_divisibility_reason(int value){
         HashMap<Integer, String> divisibility_cases = new HashMap<>();
         divisibility_cases.put(0, "because no number is divisible by 0.");
@@ -58,7 +61,7 @@ public class DivisibilityTest {
                 sum += last_digit;
             }
             StringBuilder all_digits = new StringBuilder();
-            if (number_digits.size()>0){
+            if (!number_digits.isEmpty()){
                 for (int digits: number_digits){
                     all_digits.append(" ").append(digits);
                 }

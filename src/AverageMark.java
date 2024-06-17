@@ -1,5 +1,5 @@
 import javax.swing.*;
-
+//allow user to enter 5 marks,compute sum and display average
 public class AverageMark {
     public static void main(String[]args){
        float avg;
