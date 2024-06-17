@@ -7,7 +7,7 @@ public class AgeCalculator {
     public static void main(String[] args){
         String surname = show_input_value_dialog("Enter surname");
         int number_of_char_surname = 0;
-        if(surname.length() == 0){
+        if(surname.isEmpty()){
             JOptionPane.showMessageDialog(null, "Note# No surname entered", "Warning", JOptionPane.INFORMATION_MESSAGE);
         }else{
             number_of_char_surname = surname.length();
